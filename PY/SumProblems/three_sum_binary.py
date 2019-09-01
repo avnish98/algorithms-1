@@ -1,3 +1,6 @@
+""" Implementing 3 sum problem with binary search
+    Takes n^2 log n time to converge"""
+    
 import sys
 import timeit
 from math import log2
@@ -18,10 +21,10 @@ def binary_search(arr, low, high, j):
         
         # Element found at mid
         elif(j == arr[mid]):
-            print("Element {} found".format(j))
+            return 1
     
     else : 
-        print("Element not found")
+        return -1
     
 class three_sum_binary:
     def __init__(self, file):
@@ -33,10 +36,16 @@ class three_sum_binary:
     
     def binary(self):
         start = timeit.default_timer()
+        found = 0
+        count = 0
         for i in range(self.length):
             for j in range(i+1, self.length):
-                binary_search(self.arr, 0, len(self.arr), 
+                found = binary_search(self.arr, 0, len(self.arr), 
                              (-(int(self.arr[i]+self.arr[j]))))
+                if(found == -1):
+                    break
+                else:
+                    count += 1
         stop = timeit.default_timer()
         self.time = stop - start
     

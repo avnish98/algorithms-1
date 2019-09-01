@@ -1,3 +1,6 @@
+""" Implementing 3 sum problem with brute force algorithm
+    Takes n^3 time to converge"""
+
 import sys
 import timeit
 

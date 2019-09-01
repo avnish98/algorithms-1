@@ -1,3 +1,6 @@
+""" Implementing 2 sum problem with brute for algorithm
+    Takes n^2 time to converge"""
+
 import sys
 import timeit
 
