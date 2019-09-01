@@ -2,7 +2,6 @@
     Works on Last In First Out (LIFO) principle 
     Added a program that takes file as input:
     pop         => if "-"
-    display     => if "d"
     push        => for every other input """
 
 import sys
@@ -42,8 +41,8 @@ class Stack:
 
     def is_empty():
         if (self.head == None):
-            return 1
-        return 0
+            return True
+        return False
     
     def size(self):
         count = 0

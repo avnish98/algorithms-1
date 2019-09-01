@@ -36,8 +36,8 @@ class Stack:
 
     def is_empty():
         if (self.head == None):
-            return 1
-        return 0
+            return True
+        return False
     
     def size(self):
         count = 0
