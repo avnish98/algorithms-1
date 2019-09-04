@@ -7,8 +7,8 @@ class Node:
         self.next = None
 
 class Stack:
-    def __init__(self, head):
-        self.head = head
+    def __init__(self):
+        self.head = None
     
     def display(self):
         i = self.head
@@ -28,11 +28,16 @@ class Stack:
         return(i.item)
 
     def push(self, item):
-        newitem = Node(item)
-        oldhead = self.head
 
-        self.head = newitem
-        newitem.next = oldhead
+        if(self.head == None):
+            self.head = Node(item)
+        
+        else:
+            newitem = Node(item)
+            oldhead = self.head
+
+            self.head = newitem
+            newitem.next = oldhead
 
     def is_empty():
         if (self.head == None):
@@ -47,7 +52,7 @@ class Stack:
             i = i.next
         return count
 
-stack = Stack(Node(1))
+stack = Stack()
 stack.push(2)
 stack.push(3)
 stack.push(9)
