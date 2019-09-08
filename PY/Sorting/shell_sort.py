@@ -1,7 +1,7 @@
 """ Implementing Shell Sort (named after Donald Shell)
     First h-sort array then decrease the value of h 
     and h-sort again till completely sorted
-    Takes n^2 time to converge                          """
+    Takes n^(3/2) time to converge                          """
 
 def exchange(a, b):
     """ Exchanges the values in variables and returns them """
@@ -32,11 +32,25 @@ def is_sorted(a):
             return False
     return True
 
+def knuth_inc(q):
+    """ Generates Donald Knuth's (3^x-1)/2 increment sequence
+    for an array """
+    
+    val_list = []
+    
+    for x in range(1, int(len(q)/3)):
+        val  = int(((3**x)-1)/2)
+
+        if val < len(q):
+            val_list.append(val)
+    
+    return(val_list)
+
 def shell_sort(a):
     """ Performs shell sort on array """
 
-    # Using Donald Knuth's (3^x-1)/2 increment sequence
-    inc_seq = [int(((3**x)-1)/2) for x in range(1, int(len(a)/3))]
+    # Using Donald Knuth's increment sequence
+    inc_seq =  knuth_inc(a)
     
     for inc in sorted(inc_seq, reverse=True):
         for i in range(len(a)):
